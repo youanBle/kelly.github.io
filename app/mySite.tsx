@@ -47,7 +47,7 @@ export default function PersonalSite() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white mx-[100px] md:mx-[50px]">
 
       {/* Hero Section */}
       <section className="py-20 px-4">
@@ -56,8 +56,9 @@ export default function PersonalSite() {
 
       {/* About Section */}
       <section 
-        ref={sectionsRef.current["about"] as Ref<HTMLElement>}
+        ref={sectionsRef.current["about-me"] as Ref<HTMLElement>}
         className="py-20 px-4"
+        id="about-me"
       >
         <AboutMe />
       </section>
@@ -66,6 +67,9 @@ export default function PersonalSite() {
       <section 
         ref={sectionsRef.current["skills"] as Ref<HTMLElement>}
         className="py-20 px-4 bg-black/20"
+        style={{
+          marginTop: "100px"
+         }}
       >
         <SkillsSection />
       </section>
@@ -74,6 +78,9 @@ export default function PersonalSite() {
       <section 
         ref={sectionsRef.current["projects"] as Ref<HTMLElement>}
         className="py-20 px-4"
+        style={{
+          marginTop: "100px"
+         }}
       >
        <ProjectSection />
       </section>
@@ -81,6 +88,9 @@ export default function PersonalSite() {
       {/* Contact Section */}
       <section 
         ref={sectionsRef.current["contact"] as Ref<HTMLElement>}
+        style={{
+         marginTop: "100px"
+        }}
         className="py-20 px-4"
       >
        <ContactSection />

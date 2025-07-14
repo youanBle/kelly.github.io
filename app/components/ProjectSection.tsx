@@ -1,28 +1,47 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import CyberpunkProjectCard from "./CyberpunkProjectCard";
 
 
 export default function ProjectSection() {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with React, Node.js, and PostgreSQL",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      title: "Software Engineer",
+      company: "AfterShip",
+      achievements: [
+        "Developed company product and landing pages; continuously optimized SEO performance with Lighthouse and Ahrefs, resulting in higher page rankings.",
+        "Launched multiple SEO-focused free tool pages (image resizer, AI-based name generator, BFCM statistic data dashboard) with React.js and WebGL, contributing to increased organic traffic.",
+        "Built and maintained a CMS with Next.js and Payload, enabling 90% of page configurations without developer intervention.",
+        "Designed and implemented an AI-powered translation tool integrated with the company’s CMS, automating the multilingual site deployment process.",
+        "Developed in-house data tracking and A/B testing tools to support data-driven product decisions."
+      ],
+      tech: ["React.js", "Next.js", "Payload", "WebGL", "Node.js", "SEO", "Lighthouse", "Ahrefs"],
       image: "/project1.jpg",
       link: "#"
     },
     {
-      title: "Real-time Chat App",
-      description: "WebSocket-based chat application with user authentication",
-      tech: ["Socket.io", "Express", "MongoDB", "JWT"],
+      title: "Software Engineer",
+      company: "Infor",
+      achievements: [
+        "Maintained and developed features for the Human Resource Management System as a full-stack developer.",
+        "Refactored the duty management module, migrating from legacy JavaScript and Java 8 to Angular and Kotlin. Ensured feature parity through Jasmine unit testing.",
+        "Developed a system for work shift management and collaborated with QA to convert manual testing procedures into automated BDD UI test cases using Cucumber.",
+        "Built an offline check-in system using Service Worker, enabling automatic data synchronization upon network recovery."
+      ],
+      tech: ["Angular", "Kotlin", "Java", "Jasmine", "Cucumber", "Service Worker", "Node.js"],
       image: "/project2.jpg",
       link: "#"
     },
     {
-      title: "Task Management System",
-      description: "Collaborative project management tool with real-time updates",
-      tech: ["React", "Firebase", "Material-UI", "Redux"],
+      title: "Software Engineer",
+      company: "Shopee",
+      achievements: [
+        "Designed and developed a web portal for efficient data pipeline management, improving data warehouse team operating speed by 40%.",
+        "Maintained a low-code platform and SDK for generating customized chart reports.",
+        "Built a SQL parsing and visualization platform using Canvas and Node.js, enabling intuitive tracking of column-level data lineage."
+      ],
+      tech: ["Node.js", "Canvas", "SQL", "Low-code", "SDK", "Data Visualization", "Web Portal"],
       image: "/project3.jpg",
       link: "#"
     }
@@ -30,33 +49,16 @@ export default function ProjectSection() {
   return (
 
     <div className="max-w-6xl mx-auto">
-    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">
+    <h2 className="text-4xl font-bold neon-text mb-4 border-b-2 border-cyan-400 pb-2 tracking-widest">
       Featured Projects
     </h2>
-    <div className="grid md:grid-cols-3 gap-8">
+    <div
+    style={{
+     gap:20
+    }}
+    className="grid md:grid-cols-3 gap-8">
       {projects.map((project, index) => (
-        <div 
-          key={project.title}
-          className="bg-black/20 rounded-xl p-6 hover:bg-black/30 transition-all duration-300 transform hover:scale-105 border border-white/10 hover-lift animate-scale-in"
-          style={{ animationDelay: `${index * 200}ms` }}
-        >
-          <div className="w-full h-48 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-            <div className="text-4xl z-10">🚀</div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse"></div>
-          </div>
-          <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-          <p className="text-gray-400 mb-4">{project.description}</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.tech.map((tech) => (
-              <span key={tech} className="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm hover:bg-purple-600/30 transition-colors">
-                {tech}
-              </span>
-            ))}
-          </div>
-          <button className="w-full py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
-            View Project
-          </button>
-        </div>
+        <CyberpunkProjectCard key={project.title+project.company} project={project} index={index} />
       ))}
     </div>
   </div>

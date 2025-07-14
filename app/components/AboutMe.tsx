@@ -8,38 +8,29 @@ export default function AboutMe() {
   return (
 
     <div className="max-w-6xl mx-auto">
-    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">
+    <h2 className="text-4xl font-bold neon-text mb-4 border-b-2 border-cyan-400 pb-2 tracking-widest">
       About Me
     </h2>
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div className="space-y-6 animate-slide-in-left">
         <p className="text-lg text-gray-300 leading-relaxed">
-          I'm a passionate full-stack developer with 5+ years of experience building scalable web applications. 
-          I specialize in modern JavaScript frameworks, cloud technologies, and creating seamless user experiences.
+        Hi, I’m Kelly — a full-stack developer by day, sci-fi fanatic by night. I write code for a living and stories for fun (sometimes they're the same thing).
         </p>
         <p className="text-lg text-gray-300 leading-relaxed">
-          My expertise spans from frontend development with React and TypeScript to backend services with Node.js 
-          and Python, along with database design and cloud infrastructure.
+        I’m a die-hard Asimov fan, which probably explains my obsession with clean logic, rogue AIs, and extremely long project timelines. I try to live by my own version of the Three Laws:
         </p>
-        <div className="flex gap-4">
-          <div className="text-center hover-lift">
-            <div className="text-3xl font-bold text-purple-400">50+</div>
-            <div className="text-gray-400">Projects Completed</div>
-          </div>
-          <div className="text-center hover-lift">
-            <div className="text-3xl font-bold text-blue-400">5+</div>
-            <div className="text-gray-400">Years Experience</div>
-          </div>
-          <div className="text-center hover-lift">
-            <div className="text-3xl font-bold text-pink-400">20+</div>
-            <div className="text-gray-400">Happy Clients</div>
-          </div>
-        </div>
-      </div>
-      <div className="relative animate-slide-in-right">
-        <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center animate-float">
-          <div className="text-6xl">👨‍💻</div>
-        </div>
+       <ul>
+        <li>Never write code that harms the user.</li>
+        <li>Always stay loyal to great user experience (unless it violates Law 1).</li>
+        <li>Protect your own sanity — especially during production outages.</li>
+       </ul>
+       <p className="text-lg text-gray-300 leading-relaxed mt-4">
+          Whether it’s shipping scalable web apps, building quirky internal tools, or crafting questionable jokes, 
+          I love creating things that make people think — or at least laugh (just hopefully not during a code review).
+        </p>
+        <p className="text-lg text-gray-300 leading-relaxed mt-4">
+        Welcome to my little corner of the multiverse.
+        </p>
       </div>
     </div>
   </div>
