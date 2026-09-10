@@ -1,0 +1,33 @@
+.finance-bot-scene { position:absolute; inset:0; overflow:hidden; background:radial-gradient(ellipse at 50% 55%,#69d7a90c,transparent 70%); }
+.finance-bot-scene svg { width:100%; height:100%; display:block; }
+.work-graphic:has(.finance-bot-scene)::after { display:none; }
+.finance-hand { animation:finance-hand 10s ease-in-out infinite; }
+.finance-documents { transform-origin:91px 95px; animation:finance-documents 10s ease-in-out infinite; }
+.finance-output { animation:finance-output 10s ease-in-out infinite; }
+.finance-chart { transform-box:fill-box; transform-origin:center; }
+.chart-one { animation:finance-card-one 10s ease-out infinite; }
+.chart-two { animation:finance-card-two 10s ease-out infinite; }
+.chart-three { animation:finance-card-three 10s ease-out infinite; }
+.finance-antenna { animation:finance-antenna 10s linear infinite; }
+.finance-eyes { transform-origin:163px 94px; animation:finance-eyes 10s linear infinite; }
+.finance-processing { animation:finance-antenna 10s linear infinite; }
+.finance-label { opacity:0; }
+.label-input { animation:finance-label-input 10s linear infinite; }
+.label-process { animation:finance-label-process 10s linear infinite; }
+.label-output { animation:finance-label-output 10s linear infinite; }
+.finance-bot-scene[data-running="false"] * { animation-play-state:paused; }
+@keyframes finance-hand { 0%,4% { transform:translateX(-110px); } 18% { transform:translateX(0); } 30% { transform:translateX(38px); } 45%,100% { transform:translateX(-110px); } }
+@keyframes finance-documents { 0%,4% { transform:translateX(-110px); opacity:0; } 8% { opacity:1; } 18% { transform:translateX(0); } 30% { transform:translateX(38px); opacity:1; } 39%,100% { transform:translate(72px,5px) scale(.15); opacity:0; } }
+@keyframes finance-output { 0%,53% { opacity:0; } 60%,91% { opacity:1; } 99%,100% { opacity:0; } }
+@keyframes finance-card-one { 0%,53% { transform:translate(-8px,7px) scale(.9); opacity:0; } 61%,100% { transform:none; opacity:1; } }
+@keyframes finance-card-two { 0%,60% { transform:translateY(8px) scale(.9); opacity:0; } 69%,100% { transform:none; opacity:1; } }
+@keyframes finance-card-three { 0%,67% { transform:translateY(8px) scale(.9); opacity:0; } 76%,100% { transform:none; opacity:1; } }
+@keyframes finance-antenna { 0%,33%,40%,46%,52% { opacity:.3; } 36%,43%,49%,56%,92% { opacity:1; } 100% { opacity:.3; } }
+@keyframes finance-eyes { 0%,35%,41%,91%,96%,100% { transform:scaleY(1); } 38%,94% { transform:scaleY(.15); } }
+@keyframes finance-label-input { 0%,30% { opacity:1; } 35%,100% { opacity:0; } }
+@keyframes finance-label-process { 0%,33%,58%,100% { opacity:0; } 38%,53% { opacity:1; } }
+@keyframes finance-label-output { 0%,58%,99%,100% { opacity:0; } 64%,91% { opacity:1; } }
+@media (prefers-reduced-motion:reduce) {
+  .finance-bot-scene * { animation:none !important; }
+  .finance-bot-scene .cyber-controls, .finance-stage-labels { display:none; }
+}

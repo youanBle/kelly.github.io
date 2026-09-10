@@ -1,0 +1,163 @@
+.cyber-scene {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+.cyber-surface {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.cyber-canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.cyber-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cyber-fallback {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s;
+  display: grid;
+  place-items: center;
+}
+.cyber-scene[data-ready="true"] .cyber-canvas {
+  opacity: 1;
+}
+.cyber-scene[data-ready="true"] .cyber-fallback {
+  opacity: 0;
+  pointer-events: none;
+}
+.cyber-lattice {
+  height: auto;
+  aspect-ratio: 540/500;
+}
+.cyber-lattice .cyber-surface {
+  position: absolute;
+  inset: 0;
+}
+.can-drag {
+  cursor: grab;
+  touch-action: pan-y;
+}
+.can-drag:active {
+  cursor: grabbing;
+}
+.cyber-surface:focus-visible {
+  outline: 1px solid var(--mint);
+  outline-offset: -4px;
+  border-radius: 8px;
+}
+.lattice-hint {
+  position: absolute;
+  left: 24px;
+  bottom: 10px;
+  right: 95px;
+  font: 8px/1.6 var(--mono);
+  letter-spacing: 1px;
+  color: #a6c6b3;
+  pointer-events: none;
+}
+.cyber-controls {
+  position: absolute;
+  right: 9px;
+  bottom: 6px;
+  z-index: 2;
+  display: flex;
+  gap: 4px;
+}
+.cyber-controls button {
+  border: 1px solid #6b91744d;
+  background: #121c16b3;
+  color: #badcc7;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+.cyber-controls button:hover {
+  background: #2e4936;
+}
+.cyber-controls button:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+.cyber-controls .enable-scene {
+  width: auto;
+  font: 8px var(--mono);
+  padding-inline: 8px;
+}
+.cyber-caption {
+  position: absolute;
+  left: 12px;
+  bottom: 14px;
+  font: 7px var(--mono);
+  letter-spacing: 1px;
+  color: #adbdaf;
+  pointer-events: none;
+}
+.work-graphic .cyber-scene {
+  position: absolute;
+  inset: 0;
+}
+.work-graphic:has(.cyber-scene):after {
+  display: none;
+}
+.work-graphic .cyber-fallback > .agent-diagram {
+  width: 72%;
+}
+.work-graphic .cyber-fallback > .language-diagram {
+  width: 100%;
+  height: 100%;
+}
+.work-graphic .cyber-fallback > .pipeline-diagram {
+  width: 100%;
+}
+.cyber-commerce {
+  background: radial-gradient(ellipse at 50% 70%, #b450241a, transparent 75%);
+}
+.cyber-logistics {
+  background: radial-gradient(ellipse at 50% 70%, #98843b17, transparent 75%);
+}
+.cyber-finance {
+  background: radial-gradient(ellipse at 50% 70%, #49b68017, transparent 75%);
+}
+@media (max-width: 700px) {
+  .cyber-lattice {
+    aspect-ratio: 1.22;
+  }
+  .lattice-hint {
+    font-size: 7px;
+    left: 12px;
+    right: 90px;
+    bottom: 14px;
+  }
+  .cyber-controls button {
+    width: 36px;
+    height: 36px;
+  }
+  .cyber-controls {
+    bottom: 4px;
+  }
+  .cyber-caption {
+    font-size: 7px;
+    bottom: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cyber-fallback,
+  .cyber-canvas {
+    transition: none;
+  }
+}

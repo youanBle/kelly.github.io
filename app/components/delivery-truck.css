@@ -1,0 +1,31 @@
+.delivery-scene { position:absolute; inset:0; overflow:hidden; background:radial-gradient(ellipse at 50% 65%, #67d9aa0a, transparent 70%); }
+.delivery-scene svg { width:100%; height:100%; display:block; }
+.work-graphic:has(.delivery-scene)::after { display:none; }
+.delivery-drive { animation:delivery-drive 8s linear infinite; }
+.delivery-bounce { animation:delivery-bounce .48s ease-in-out infinite; }
+.delivery-parcel { transform-box:fill-box; transform-origin:center bottom; animation:delivery-parcel .48s ease-in-out infinite; }
+.parcel-two { animation-delay:-.12s; }
+.parcel-three { animation-delay:-.24s; }
+.delivery-wheel { animation:delivery-wheel .65s linear infinite; }
+.delivery-road { animation:delivery-road .65s linear infinite; }
+.delivery-speed { animation:delivery-speed .7s ease-in-out infinite alternate; }
+.delivery-scene[data-running="false"] * { animation-play-state:paused; }
+@keyframes delivery-drive { 0% { transform:translateX(-290px); } 20% { transform:translateX(-12px); } 65% { transform:translateX(12px); } 100% { transform:translateX(275px); } }
+@keyframes delivery-bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-1.8px); } }
+@keyframes delivery-parcel { 0%,100% { transform:translateY(0) rotate(0); } 50% { transform:translateY(-1.5px) rotate(1deg); } }
+@keyframes delivery-wheel { to { transform:rotate(360deg); } }
+@keyframes delivery-road { to { transform:translateX(-48px); } }
+@keyframes delivery-speed { to { opacity:.25; transform:translateX(-5px); } }
+@media (prefers-reduced-motion:reduce) { .delivery-scene * { animation:none !important; } .delivery-scene .cyber-controls { display:none; } }
+.tracking-status { opacity:0; }
+.tracking-transit { animation:tracking-transit 8s linear infinite; }
+.tracking-out { animation:tracking-out 8s linear infinite; }
+.tracking-done { animation:tracking-done 8s linear infinite; }
+.tracking-pulse { animation:tracking-pulse 1s ease-in-out infinite; }
+.tracking-progress { animation:tracking-progress 8s linear infinite; }
+@keyframes tracking-transit { 0%,17% { opacity:1; } 21%,100% { opacity:0; } }
+@keyframes tracking-out { 0%,20%,73%,100% { opacity:0; } 24%,69% { opacity:1; } }
+@keyframes tracking-done { 0%,72%,100% { opacity:0; } 76%,96% { opacity:1; } }
+@keyframes tracking-pulse { 50% { opacity:.3; } }
+@keyframes tracking-progress { 0% { stroke-dashoffset:1; opacity:1; } 74%,96% { stroke-dashoffset:0; opacity:1; } 100% { stroke-dashoffset:0; opacity:0; } }
+@media (prefers-reduced-motion:reduce) { .tracking-done { opacity:1; } .tracking-progress { stroke-dashoffset:0; } }
