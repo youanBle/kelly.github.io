@@ -97,36 +97,48 @@ const work = [
   {
     id: "01",
     company: "AXiM",
-    category: "AI / REAL ESTATE",
-    title: "An AI agent for real estate.",
-    description:
-      "I’m building a real estate platform where you can ask about deals, work with financial data, and get things done with an AI agent.",
+    business: "AI underwriting & asset management",
+    tenure: "AUG 2025 — PRESENT",
+    title: "Senior Front-end Developer",
+    highlights: [
+      "Own the front-end architecture and BFF design for a commercial real estate platform.",
+      "Built a streaming AI agent with multi-turn context and tool calling over internal APIs.",
+      "Built Python financial-data pipelines and Playwright coverage for UI and model outputs.",
+    ],
     tags: ["Next.js", "TypeScript", "Python", "Playwright"],
     kind: "agent",
-    label: "Natural language → real workflows",
+    label: "Architecture · AI workflows · release",
     details:
       "I handle the front end and the API layer behind it. The agent streams replies, keeps track of the conversation, and calls internal tools. I also built a Python pipeline to clean up rent rolls and operating statements, with Playwright tests checking both the UI and the financial outputs.",
   },
   {
     id: "02",
     company: "AfterShip",
-    category: "WEB / AUTOMATION",
-    title: "Hello, in 38 languages.",
-    description:
-      "I built tools to translate, review, and publish content across 38 languages. Plus a bunch of fast pages and handy little web tools.",
+    business: "E-commerce shipping & post-purchase",
+    tenure: "MAY 2024 — JUN 2025",
+    title: "Full-Stack Developer · Growth",
+    highlights: [
+      "Led SSR product and marketing pages in Next.js, improving search rankings across key pages.",
+      "Shipped SEO-focused tools and WebGL experiences that contributed to organic growth.",
+      "Architected AI translation and review automation for publishing across 38 languages.",
+    ],
     tags: ["React", "Node.js", "Docker", "WebGL"],
     kind: "language",
-    label: "38 languages · automated publishing",
+    label: "SSR · SEO growth · publishing automation",
     details:
       "The translation and review system runs on Node.js and Docker and handles publishing across 38 languages. I also worked on server-rendered pages, SEO tools, and an internal tracking SDK and A/B testing setup using TypeScript and PostHog.",
   },
   {
     id: "03",
     company: "Shopee",
-    category: "DATA / VISUALIZATION",
-    title: "Where does this data go?",
-    description:
-      "I turned data pipelines and SQL lineage into visual tools, so the team could see what connects to what.",
+    business: "E-commerce marketplace & seller tools",
+    tenure: "JUL 2021 — SEP 2022",
+    title: "Front-end Developer · Seller",
+    highlights: [
+      "Built a Nuxt.js portal for visual management of Flink data pipelines.",
+      "Improved data warehouse team operating speed by 40%.",
+      "Built a Canvas and Node.js platform for tracing column-level SQL data lineage.",
+    ],
     tags: ["Nuxt.js", "Canvas", "Node.js", "SQL"],
     kind: "pipeline",
     label: "40% faster data warehouse operations",
@@ -202,7 +214,7 @@ export default function Home() {
             <span className="infor-logo">infor.</span>
             <span className="shopee-logo">shopee</span>
           </div>
-          <a href="#experience" aria-label="Explore experience">
+          <a href="#work" aria-label="Explore selected work">
             <Arrow down />
           </a>
         </div>
@@ -223,14 +235,21 @@ export default function Home() {
             {work.map((item) => (
               <article className="work-card" key={item.id}>
                 <div className="work-card-top">
-                  <span>{item.company}</span>
+                  <div className="work-company">
+                    <span>{item.company}</span>
+                    <small>{item.business}</small>
+                  </div>
                   <span className="work-number">/{item.id}</span>
                 </div>
                 <WorkGraphic kind={item.kind} />
                 <div className="work-content">
-                  <p className="eyebrow">{item.category}</p>
+                  <p className="eyebrow">{item.tenure}</p>
                   <h3>{item.title}</h3>
-                  <p className="work-description">{item.description}</p>
+                  <ul className="work-highlights">
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
                   <p className="work-result">
                     <span>↗</span> {item.label}
                   </p>
@@ -319,67 +338,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="experience" className="section shell experience">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">03 / WORK HISTORY</p>
-              <h2>Where I’ve been.</h2>
-            </div>
-          </div>
-          <div className="experience-list">
-            {[
-              {
-                company: "AXiM",
-                role: "Senior Front-end Developer",
-                date: "AUG 2025 — PRESENT",
-                place: "Toronto, Canada",
-                text: "Building an AI-powered real estate platform. I look after the front end, the API layer behind it, testing, and getting releases out the door.",
-                current: true,
-              },
-              {
-                company: "AfterShip",
-                role: "Full-Stack Developer · Growth",
-                date: "MAY 2024 — JUN 2025",
-                place: "Guangdong, China",
-                text: "Built fast web pages, useful SEO tools, and an AI translation system. Also helped the team track what was working with analytics and A/B tests.",
-              },
-              {
-                company: "Infor",
-                role: "Software Engineer · WFM",
-                date: "JAN 2023 — FEB 2024",
-                place: "Toronto, Canada",
-                text: "Moved older workforce tools to Angular and Kotlin, keeping the existing features working with 85% Jasmine unit test coverage.",
-              },
-              {
-                company: "Shopee",
-                role: "Front-end Developer · Seller",
-                date: "JUL 2021 — SEP 2022",
-                place: "Guangdong, China",
-                text: "Built visual tools for managing Flink pipelines and tracing SQL data. Less digging around to find out what’s connected.",
-              },
-            ].map((job) => (
-              <article key={job.company} className="experience-row">
-                <div className="experience-date">
-                  {job.current && (
-                    <span className="current-label">
-                      <span className="status-dot" /> CURRENT
-                    </span>
-                  )}
-                  <span>{job.date}</span>
-                </div>
-                <div className="experience-title">
-                  <h3>{job.company}</h3>
-                  <p>{job.role}</p>
-                  <span>{job.place}</span>
-                </div>
-                <p className="experience-description">{job.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
         <section id="about" className="section shell about">
           <div>
-            <p className="eyebrow">04 / HELLO AGAIN</p>
+            <p className="eyebrow">03 / HELLO AGAIN</p>
             <h2>
               A bit about me.
               <br />

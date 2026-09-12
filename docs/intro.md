@@ -42,7 +42,7 @@ controls; keyboard focus and reduced motion. Preview the exported build on port
 Page generation transitions live in `page-build.css`. The first draft reserves
 its real module boxes behind animated skeletons, reveals navigation/hero/cards
 in sequence, then sweeps left with a small wind-up before the reaction scene.
-Its scene lasts 4.65 seconds; the dismissal runs from 3.9 to 4.6 seconds.
+Its scene lasts 3.9 seconds; the dismissal runs from 3.2 to 3.82 seconds.
 Natural intro completion adds `data-site-building` to the body for 3.4 seconds,
 revealing the final site's modules in place. Skip bypasses this sequence; the
 reveal itself also has a Skip button. Replay/unmount clear the reveal timer and

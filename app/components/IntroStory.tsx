@@ -5,12 +5,12 @@ import "./intro-story.css";
 import "./page-build.css";
 
 const scenes = [
-  { label: "A small task", duration: 2300 },
-  { label: "The first prompt", duration: 4400 },
-  { label: "The first draft", duration: 4650 },
+  { label: "A small task", duration: 2000 },
+  { label: "The first prompt", duration: 3000 },
+  { label: "The first draft", duration: 3900 },
   { label: "Not quite", duration: 2200 },
   { label: "A better brief", duration: 5200 },
-  { label: "A plan first", duration: 3600 },
+  { label: "A plan first", duration: 4300 },
 ];
 
 function Message({
@@ -253,33 +253,33 @@ export default function IntroStory() {
                       ✧
                     </span>
                     <p className="bad-eyebrow">
-                      WELCOME TO MY DIGITAL UNIVERSE
+                      SENIOR FRONT-END DEVELOPER · TORONTO
                     </p>
                     <h2 id="story-title">
-                      Innovating the future.
+                      Hi, I’m Kelly.
                       <br />
-                      <span>One pixel at a time.</span>
+                      <span>I build web products.</span>
                     </h2>
                     <p className="bad-description">
-                      Passionate. Visionary. Results-driven.
+                      From front-end architecture to AI workflows and release.
                     </p>
-                    <span className="bad-cta">LET’S INNOVATE TOGETHER 🚀</span>
+                    <span className="bad-cta">EXPLORE MY WORK 🚀</span>
                   </div>
                   <div className="bad-cards">
                     <div>
                       <b>✧</b>
-                      <h3>Innovation</h3>
-                      <p>Turning bold ideas into digital experiences.</p>
+                      <h3>AI products</h3>
+                      <p>Agents for real estate workflows and financial data.</p>
                     </div>
                     <div>
                       <b>⌘</b>
-                      <h3>Excellence</h3>
-                      <p>Crafting solutions that go beyond expectations.</p>
+                      <h3>Growth &amp; web</h3>
+                      <p>SEO tools, experiments, and content across 38 languages.</p>
                     </div>
                     <div>
                       <b>⚡</b>
-                      <h3>Impact</h3>
-                      <p>Building tomorrow’s possibilities, today.</p>
+                      <h3>Data visualization</h3>
+                      <p>Visual pipelines, SQL lineage, and workflow tools.</p>
                     </div>
                   </div>
                 </div>
@@ -302,9 +302,9 @@ export default function IntroStory() {
                   <ChatWindow status="Reading the brief">
                     <Message who="Kelly">
                       <p>
-                        Okay, let’s try that again.
+                        Here’s the reference and the real brief.
                         <br />
-                        Use this skill. Here’s what I have in mind.
+                        Treat it as a product spec, then plan before you build.
                       </p>
                       <a
                         className="skill-attachment"
@@ -316,24 +316,44 @@ export default function IntroStory() {
                       </a>
                       <dl className="brief-list">
                         <div>
-                          <dt>The feel</dt>
-                          <dd>Dark, mint, a little cyber. Room to breathe.</dd>
+                          <dt>Design</dt>
+                          <dd>
+                            Extract reusable color, type, spacing, surface, and
+                            motion tokens from the reference.
+                          </dd>
                         </div>
                         <div>
-                          <dt>The pieces</dt>
-                          <dd>Next.js + React. Small, native components.</dd>
+                          <dt>Sections</dt>
+                          <dd>
+                            Intro → selected work → AI workflow → about →
+                            contact.
+                          </dd>
                         </div>
                         <div>
-                          <dt>The layout</dt>
-                          <dd>Work → AI → experience → a little about me.</dd>
+                          <dt>Responsive</dt>
+                          <dd>
+                            Mobile-first, touch-friendly, and readable at every
+                            breakpoint.
+                          </dd>
                         </div>
                         <div>
-                          <dt>The details</dt>
-                          <dd>Mobile-friendly. Fast. Motion I can skip.</dd>
+                          <dt>3D</dt>
+                          <dd>
+                            Use Three.js for small interactive scenes with depth
+                            and pointer response, plus static fallbacks.
+                          </dd>
+                        </div>
+                        <div>
+                          <dt>SSR + SEO</dt>
+                          <dd>
+                            Keep core content in static HTML. Lazy-load 3D on the
+                            client and add complete metadata.
+                          </dd>
                         </div>
                       </dl>
                       <p className="brief-last-line">
-                        Show me a plan before you build.
+                        Before coding, propose the design system, component map,
+                        3D approach, SEO strategy, and validation plan.
                       </p>
                     </Message>
                   </ChatWindow>
@@ -348,19 +368,58 @@ export default function IntroStory() {
                     <Message who="AI">
                       <p>Here’s the plan.</p>
                       <ol className="plan-list">
-                        <li>Lead with your work.</li>
-                        <li>Keep the copy human and the layout clean.</li>
+                        <li>Turn the reference into reusable design tokens.</li>
+                        <li>Map the resume into five focused content regions.</li>
                         <li>
-                          Load the content first. Leave room for a little 3D
-                          later.
+                          Render the content first; load isolated Three.js scenes
+                          only when needed.
                         </li>
+                        <li>Validate mobile, accessibility, SEO, and performance.</li>
                       </ol>
+                      <div className="plan-sketches" aria-label="Low-fidelity page layouts">
+                        <figure>
+                          <svg viewBox="0 0 120 82" aria-hidden="true">
+                            <path className="sketch-frame" d="M5 6L114 5L116 76L4 77Z" />
+                            <path d="M5 17L115 16M12 11h18M96 11h12" />
+                            <path className="sketch-fill" d="M12 24h52v25H12z" />
+                            <path d="M17 30h30M17 36h39M17 42h22" />
+                            <path className="sketch-fill" d="M72 24h35v25H72z" />
+                            <circle className="sketch-note" cx="90" cy="36" r="9" />
+                            <path d="M12 56h28v13H12zM46 56h28v13H46zM80 56h28v13H80z" />
+                          </svg>
+                          <figcaption>HOME</figcaption>
+                        </figure>
+                        <figure>
+                          <svg viewBox="0 0 120 82" aria-hidden="true">
+                            <path className="sketch-frame" d="M5 5L115 6L114 77L4 76Z" />
+                            <path d="M5 16h110M12 10h23M99 10h9" />
+                            <path className="sketch-fill" d="M12 23h96v12H12zM12 41h96v12H12zM12 59h96v10H12z" />
+                            <path d="M18 27h28M75 27h25M18 45h43M82 45h18M18 63h35" />
+                            <path className="sketch-note" d="M68 20c9-4 26 0 29 9M68 20l5-5M68 20l7 3" />
+                          </svg>
+                          <figcaption>SECTIONS</figcaption>
+                        </figure>
+                        <figure>
+                          <svg viewBox="0 0 120 82" aria-hidden="true">
+                            <path className="sketch-frame" d="M38 4L82 5L80 78L39 77Z" />
+                            <path d="M39 14h42M45 9h17M72 9h4" />
+                            <path className="sketch-fill" d="M45 20h29v19H45zM45 44h29v9H45zM45 58h29v10H45z" />
+                            <path d="M49 25h14M49 30h20M49 35h10M49 48h17M49 62h16" />
+                            <circle className="sketch-note" cx="86" cy="31" r="14" />
+                            <path d="M96 42l8 8M104 50l-1-7M104 50l-7-1" />
+                          </svg>
+                          <figcaption>MOBILE</figcaption>
+                        </figure>
+                      </div>
                     </Message>
                     <Message who="Kelly">
                       <p>
-                        Yep, more like it. Keep it fast.
+                        Okay, more like it. Keep it fast.
                         <br />
-                        <span className="story-mint">Let’s make this one.</span>
+                        <span className="story-mint">
+                          Check the interactions and mobile overflow, then let’s
+                          make this one.
+                        </span>
                       </p>
                     </Message>
                   </ChatWindow>

@@ -154,13 +154,13 @@
   height: 5px;
   background: #b2f5ce;
   border-radius: 50%;
-  animation: story-dot 0.9s ease-in-out 3;
+  animation: story-dot 0.6s ease-in-out 3;
 }
 .story-loading > span:nth-child(2) {
-  animation-delay: 0.15s;
+  animation-delay: 0.1s;
 }
 .story-loading > span:nth-child(3) {
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
 }
 .story-loading small {
   font: 11px var(--mono);
@@ -169,7 +169,7 @@
   letter-spacing: 0;
 }
 .scene-1 .from-ai {
-  animation: story-enter 0.4s 0.55s ease-out both;
+  animation: story-enter 0.3s 0.3s ease-out both;
 }
 .skill-attachment {
   display: inline-flex;
@@ -855,6 +855,48 @@
   line-height: 1.7;
   margin-top: 13px;
 }
+.plan-sketches {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: min(430px, 100%);
+  margin-top: 18px;
+  animation: story-enter 0.35s 1.9s ease-out both;
+}
+.plan-sketches figure {
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+.plan-sketches svg {
+  display: block;
+  width: min(120px, 100%);
+  height: auto;
+  margin: 0 auto 5px;
+  overflow: visible;
+  fill: none;
+  stroke: #92c7a4;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.plan-sketches .sketch-frame {
+  stroke-dasharray: 4 3;
+  stroke-width: 1.5;
+}
+.plan-sketches .sketch-fill {
+  fill: #92c7a40d;
+}
+.plan-sketches .sketch-note {
+  stroke: #b2f5ce;
+  stroke-dasharray: 3 3;
+  stroke-width: 1.35;
+}
+.plan-sketches figcaption {
+  color: #829d8b;
+  font: 9px var(--mono);
+  letter-spacing: 1.2px;
+}
 .chat-window .skill-attachment {
   font-size: 11px;
   margin-top: 11px;
@@ -872,14 +914,14 @@
   width: 40%;
   height: 100%;
   background: #b2f5ce;
-  animation: generation-sweep 1.4s ease-in-out infinite;
+  animation: generation-sweep 0.9s ease-in-out infinite;
 }
 .chat-window .story-loading > span {
   animation-iteration-count: infinite;
 }
 
 .scene-1 .from-ai {
-  animation: story-enter 0.4s 0.65s ease-out both;
+  animation: story-enter 0.3s 0.35s ease-out both;
 }
 .brief-list > div,
 .plan-list li {
@@ -900,8 +942,15 @@
 .brief-list > div:nth-child(4) {
   animation-delay: 1.25s;
 }
+.brief-list > div:nth-child(5),
+.plan-list li:nth-child(4) {
+  animation-delay: 1.6s;
+}
+.brief-last-line {
+  animation: story-enter 0.35s 1.95s ease-out both;
+}
 .plan-conversation .from-kelly {
-  animation: story-enter 0.4s 1.7s ease-out both;
+  animation: story-enter 0.4s 2.3s ease-out both;
 }
 .story-shell[data-paused="true"] .chat-window-status i,
 .story-shell[data-paused="true"] .generation-track i {
@@ -909,7 +958,9 @@
 }
 .story-shell[data-paused="true"] .story-message,
 .story-shell[data-paused="true"] .brief-list > div,
-.story-shell[data-paused="true"] .plan-list li {
+.story-shell[data-paused="true"] .plan-list li,
+.story-shell[data-paused="true"] .brief-last-line,
+.story-shell[data-paused="true"] .plan-sketches {
   animation: none;
 }
 @keyframes scene-fade {
@@ -988,8 +1039,29 @@
   .chat-window .plan-list {
     font-size: 13px;
   }
+  .plan-conversation .chat-messages {
+    padding-block: 17px 13px;
+  }
+  .plan-conversation .chat-window .story-message + .story-message {
+    margin-top: 16px;
+  }
+  .plan-conversation .plan-list {
+    line-height: 1.6;
+    margin-top: 9px;
+  }
+  .plan-conversation .plan-list li {
+    margin-top: 6px;
+  }
   .chat-window .brief-last-line {
     font-size: 14px;
+  }
+  .plan-sketches {
+    gap: 9px;
+    width: min(250px, 100%);
+    margin-top: 10px;
+  }
+  .plan-sketches svg {
+    width: min(78px, 100%);
   }
   .chat-window .skill-attachment {
     font-size: 9px;
@@ -1003,6 +1075,14 @@
     font-size: 8px;
   }
 }
+@media (max-height: 900px) and (min-width: 701px) {
+  .plan-conversation {
+    padding-block: 80px 55px;
+  }
+  .plan-conversation .chat-window {
+    max-height: calc(100dvh - 135px);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .chat-window * {
     animation: none !important;
@@ -1014,11 +1094,11 @@
   display: block;
   color: inherit;
   transform-origin: left center;
-  animation: thought-arrive 0.85s 0.08s both;
+  animation: thought-arrive 0.7s 0.06s both;
 }
 .story-statement h2 > .thought-followup {
   color: #aabdb0;
-  animation-delay: 0.35s;
+  animation-delay: 0.25s;
 }
 .chat-window .from-kelly .message-body {
   transform-origin: right top;
