@@ -289,7 +289,7 @@ export default function IntroStory() {
                   <h2 id="story-title">
                     <span className="thought-line">No, no, no.</span>
                     <span className="thought-line thought-followup">
-                      That’s definitely not what I want.
+                      This feels way too AI. We can’t do this.
                     </span>
                   </h2>
                 </div>

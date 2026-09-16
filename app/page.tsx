@@ -1,3 +1,5 @@
+import OrbitalParticles from "./components/OrbitalParticles";
+import OffClock from "./components/OffClock";
 import IntroStory from "./components/IntroStory";
 import FinanceBot from "./components/FinanceBot";
 import DeliveryTruck from "./components/DeliveryTruck";
@@ -10,9 +12,6 @@ function Arrow({ down = false }: { down?: boolean }) {
 function Orbital() {
   return (
     <div className="orbital-stage">
-      <div className="stage-label">
-        <span className="cross">+</span> A LITTLE ROOM TO EXPERIMENT.
-      </div>
       <svg className="orbital" viewBox="0 0 540 500" fill="none" aria-hidden="true">
         <defs>
           <linearGradient
@@ -57,38 +56,9 @@ function Orbital() {
           ))}
           <circle cx="270" cy="250" r="166" strokeOpacity=".5" />
         </g>
-        <g fill="#a6f6cf">
-          <circle cx="438" cy="250" r="4" />
-          <circle cx="168" cy="119" r="3" />
-          <circle cx="222" cy="409" r="3" />
-        </g>
-        <path
-          d="M438 250h49v-53M168 119V74h-58M222 409v28h-78"
-          stroke="#789c8d"
-          strokeWidth=".7"
-        />
-        <g
-          fill="#94a69e"
-          fontFamily="monospace"
-          fontSize="9"
-          letterSpacing="1.2"
-        >
-          <text x="450" y="186">
-            BUILD
-          </text>
-          <text x="72" y="63">
-            THINK
-          </text>
-          <text x="97" y="443">
-            REFINE
-          </text>
-        </g>
+        <OrbitalParticles />
         <path d="M260 250h20M270 240v20" stroke="#b7fbd8" />
       </svg>
-      <div className="stage-footer">
-        <span>SIDE QUEST / SOMETHING TAKING SHAPE</span>
-        <span>↗</span>
-      </div>
     </div>
   );
 }
@@ -108,8 +78,6 @@ const work = [
     tags: ["Next.js", "TypeScript", "Python", "Playwright"],
     kind: "agent",
     label: "Architecture · AI workflows · release",
-    details:
-      "I handle the front end and the API layer behind it. The agent streams replies, keeps track of the conversation, and calls internal tools. I also built a Python pipeline to clean up rent rolls and operating statements, with Playwright tests checking both the UI and the financial outputs.",
   },
   {
     id: "02",
@@ -125,8 +93,6 @@ const work = [
     tags: ["React", "Node.js", "Docker", "WebGL"],
     kind: "language",
     label: "SSR · SEO growth · publishing automation",
-    details:
-      "The translation and review system runs on Node.js and Docker and handles publishing across 38 languages. I also worked on server-rendered pages, SEO tools, and an internal tracking SDK and A/B testing setup using TypeScript and PostHog.",
   },
   {
     id: "03",
@@ -142,8 +108,6 @@ const work = [
     tags: ["Nuxt.js", "Canvas", "Node.js", "SQL"],
     kind: "pipeline",
     label: "40% faster data warehouse operations",
-    details:
-      "I built a Nuxt.js portal for managing Flink pipelines, helping the data warehouse team work 40% faster. I also used Canvas and Node.js to show how individual columns flow through SQL queries.",
   },
 ];
 
@@ -258,15 +222,6 @@ export default function Home() {
                       <span key={tag}>{tag}</span>
                     ))}
                   </div>
-                  <details>
-                    <summary>
-                      The nerdy details{" "}
-                      <span className="details-plus" aria-hidden="true">
-                        +
-                      </span>
-                    </summary>
-                    <p>{item.details}</p>
-                  </details>
                 </div>
               </article>
             ))}
@@ -338,67 +293,16 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="about" className="section shell about">
-          <div>
-            <p className="eyebrow">03 / HELLO AGAIN</p>
-            <h2>
-              A bit about me.
-              <br />
-              Beyond the tabs.
-            </h2>
-            <p className="about-copy">
-              I started in mechanical engineering, moved into computer
-              engineering, and ended up building software. I’ve worked in China
-              and Canada, on everything from web pages to data pipelines.
-            </p>
-            <p className="about-copy">
-              Right now, I’m looking for a new team and something interesting to
-              work on. If that sounds like your corner of the internet, say hi.
-            </p>
-            <div className="education">
-              <span className="small-label">EDUCATION</span>
-              <p>
-                <strong>University of Ottawa</strong>
-                <span>MScAC · Electrical and Computer Engineering</span>
-              </p>
-              <p>
-                <strong>Sichuan University</strong>
-                <span>B.Eng · Mechanical Engineering</span>
-              </p>
-            </div>
+        <section id="about" className="section shell about off-clock">
+          <div className="off-clock-heading">
+            <div><p className="eyebrow">03 / OFF THE CLOCK</p><h2>Beyond work.</h2></div>
+            <p className="off-clock-aside"><span>↳</span> CURRENT DISTRACTIONS<br />A few tabs that aren’t work.</p>
           </div>
-          <div className="toolbox">
-            <div className="toolbox-header">
-              <span className="eyebrow">TOOLS I REACH FOR</span>
-              <span aria-hidden="true">↗</span>
-            </div>
-            {[
-              {
-                name: "Interfaces",
-                tools: "TypeScript / React / Next.js / Angular / Vue",
-              },
-              {
-                name: "Systems & data",
-                tools: "Node.js / Python / SQL / GraphQL / Redis",
-              },
-              {
-                name: "Testing & shipping",
-                tools: "Playwright / Docker / AWS / Cloudflare",
-              },
-              {
-                name: "Visualization & growth",
-                tools: "Canvas / WebGL / ECharts / PostHog",
-              },
-            ].map((group) => (
-              <div className="toolbox-row" key={group.name}>
-                <h3>{group.name}</h3>
-                <p>{group.tools}</p>
-              </div>
-            ))}
-            <div className="toolbox-note">
-              <span className="status-dot" /> THERE’S ALWAYS SOMETHING NEW TO
-              TRY
-            </div>
+          <OffClock />
+          <div className="off-education">
+            <span className="small-label">BEFORE ALL THESE TABS / EDUCATION</span>
+            <p><strong>University of Ottawa</strong><span>MScAC · Electrical and Computer Engineering</span></p>
+            <p><strong>Sichuan University</strong><span>B.Eng · Mechanical Engineering</span></p>
           </div>
         </section>
       </main>
@@ -419,13 +323,6 @@ export default function Home() {
             rel="noreferrer"
           >
             LinkedIn <Arrow />
-          </a>
-          <a
-            href="https://github.com/youanBle"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub <Arrow />
           </a>
           <IntroStory />
         </div>

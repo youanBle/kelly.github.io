@@ -1,0 +1,13 @@
+.orbital-atmosphere { pointer-events:none; }
+.orbit-satellite, .orbit-ripple { transform-origin:270px 250px; }
+.orbit-satellite { animation:orbit-satellite-turn 28s linear infinite; }
+.satellite-b { animation-duration:42s; animation-direction:reverse; }
+.orbit-mote { animation:orbit-mote-drift var(--mote-time) ease-in-out var(--mote-delay) infinite alternate; }
+.orbit-ripple { fill:none; opacity:0; animation:orbit-ripple-out 8s ease-out infinite; }
+.ripple-later { animation-delay:-4s; }
+.orbital-atmosphere[data-playing="false"] * { animation-play-state:paused; }
+@keyframes orbit-satellite-turn { to { transform:rotate(360deg); } }
+@keyframes orbit-mote-drift { from { transform:translate(0,0); opacity:.3; } to { transform:translate(var(--mote-x),var(--mote-y)); opacity:.9; } }
+@keyframes orbit-ripple-out { 0% { transform:scale(1); opacity:0; } 20% { opacity:.16; } 100% { transform:scale(1.32); opacity:0; } }
+@media(max-width:700px) { .orbit-dust > g:nth-child(even) { display:none; } .ripple-later { display:none; } }
+@media(prefers-reduced-motion:reduce) { .orbital-atmosphere * { animation:none!important; } .orbit-ripples { display:none; } .orbit-mote { opacity:.4; } }
